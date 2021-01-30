@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "standard-with-typescript",
+    "react-app",
+    "react-app/jest",
+    "../.eslintrc.json"
+  ],
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "parser": "@typescript-eslint/parser"
+}

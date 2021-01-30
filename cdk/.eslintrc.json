@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "standard-with-typescript",
+    "../.eslintrc.json"
+  ],
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "parser": "@typescript-eslint/parser"
+}
