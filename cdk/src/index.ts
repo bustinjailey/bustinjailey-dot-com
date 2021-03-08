@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { App } from '@aws-cdk/core';
-import PipelineStack from './deploy/PipelineStack';
+import PipelineStack from './PipelineStack';
 import camelCase from 'camelcase';
 
 if (!process.env.GITHUB_TOKEN) {

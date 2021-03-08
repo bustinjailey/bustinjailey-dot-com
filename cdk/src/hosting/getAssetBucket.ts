@@ -1,7 +1,7 @@
 import { Stack } from '@aws-cdk/core';
 import * as s3 from '@aws-cdk/aws-s3';
 import * as cdk from '@aws-cdk/core';
-import PipelineStackProps from '../deploy/PipelineStackProps';
+import PipelineStackProps from '../PipelineStackProps';
 
 export default function getAssetBucket(stack: Stack, props: PipelineStackProps) {
   const recordName = 'www';

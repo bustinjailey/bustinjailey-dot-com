@@ -2,7 +2,7 @@ import * as codebuild from '@aws-cdk/aws-codebuild';
 import { Stack } from '@aws-cdk/core';
 import * as codepipeline from '@aws-cdk/aws-codepipeline';
 import camelCase from 'camelcase';
-import PipelineStackProps from '../deploy/PipelineStackProps';
+import PipelineStackProps from '../PipelineStackProps';
 
 export default function getCodebuildProject(stack: Stack, props: PipelineStackProps)
   : { codebuildProject: codebuild.PipelineProject; codebuildOutput: codepipeline.Artifact; } {

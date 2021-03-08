@@ -1,6 +1,5 @@
 import { Stack } from '@aws-cdk/core';
 import * as route53 from '@aws-cdk/aws-route53';
-import { IBucket } from '@aws-cdk/aws-s3';
 import { IAliasRecordTarget } from '@aws-cdk/aws-route53';
 
 export default function createAlias(stack: Stack, recordName: string, domainName: string, target: IAliasRecordTarget) {

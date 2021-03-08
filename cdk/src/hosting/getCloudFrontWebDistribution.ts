@@ -1,6 +1,6 @@
 import { CloudFrontWebDistribution, PriceClass, SecurityPolicyProtocol } from '@aws-cdk/aws-cloudfront';
 import { Stack } from '@aws-cdk/core';
-import PipelineStackProps from '../deploy/PipelineStackProps';
+import PipelineStackProps from '../PipelineStackProps';
 import camelCase from 'camelcase';
 import { IBucket } from '@aws-cdk/aws-s3';
 

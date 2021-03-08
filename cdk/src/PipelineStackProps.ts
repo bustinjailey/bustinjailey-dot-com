@@ -1,5 +1,5 @@
 import { StackProps } from '@aws-cdk/core';
-import UiBuildProps from '../build/UiBuildProps';
+import UiBuildProps from './build/UiBuildProps';
 import SourceGithubRepositoryProps from './SourceGithubRepositoryProps';
 
 interface PipelineStackProps extends StackProps {

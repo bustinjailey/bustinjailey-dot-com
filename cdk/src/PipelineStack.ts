@@ -3,11 +3,11 @@ import * as codepipeline from '@aws-cdk/aws-codepipeline';
 import * as codepipelineActions from '@aws-cdk/aws-codepipeline-actions';
 import { CloudFrontTarget } from '@aws-cdk/aws-route53-targets';
 import PipelineStackProps from './PipelineStackProps';
-import getCodebuildProject from '../build/getCodebuildProject';
-import getAssetBucket from '../s3/getAssetBucket';
+import getCodebuildProject from './build/getCodebuildProject';
+import getAssetBucket from './hosting/getAssetBucket';
 import camelCase from 'camelcase';
-import createAlias from '../route53/createAlias';
-import getCloudFrontWebDistribution from '../cf/getCloudFrontWebDistribution';
+import createAlias from './hosting/createAlias';
+import getCloudFrontWebDistribution from './hosting/getCloudFrontWebDistribution';
 
 export default class PipelineStack extends Stack {
   constructor(app: App, id: string, props: PipelineStackProps) {
