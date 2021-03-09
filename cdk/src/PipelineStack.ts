@@ -5,9 +5,10 @@ import { CloudFrontTarget } from '@aws-cdk/aws-route53-targets';
 import PipelineStackProps from './PipelineStackProps';
 import getCodebuildProject from './build/getCodebuildProject';
 import getAssetBucket from './hosting/getAssetBucket';
-import camelCase from 'camelcase';
+import { pascalPrefix } from './util/getStackConstructIdPrefix';
 import createAlias from './hosting/createAlias';
 import getCloudFrontWebDistribution from './hosting/getCloudFrontWebDistribution';
+import getCurrentBranchName from './util/getCurrentBranchName';
 
 export default class PipelineStack extends Stack {
   constructor(app: App, id: string, props: PipelineStackProps) {
@@ -17,13 +18,10 @@ export default class PipelineStack extends Stack {
     const { codebuildProject, codebuildOutput } = getCodebuildProject(this, props);
     const assetBucket = getAssetBucket(this, props);
     const distribution = getCloudFrontWebDistribution(this, props, assetBucket, props.certificateArn);
-
-    if (props.domainName) {
-      createAlias(this, 'www', props.domainName, new CloudFrontTarget(distribution));
-    }
+    createAlias(this, props.subdomainName, props.appName, new CloudFrontTarget(distribution));
 
     // eslint-disable-next-line no-new
-    new codepipeline.Pipeline(this, `${camelCase(props.appName, { pascalCase: true })}Pipeline`, {
+    new codepipeline.Pipeline(this, `${pascalPrefix(props)}Pipeline`, {
       stages: [
         {
           stageName: 'GetSource',
@@ -34,7 +32,8 @@ export default class PipelineStack extends Stack {
               owner: props.sourceGithubRepositoryProps.repoOwnerName,
               repo: props.sourceGithubRepositoryProps.repoName,
               oauthToken: SecretValue.plainText(props.sourceGithubRepositoryProps.githubToken),
-              trigger: codepipelineActions.GitHubTrigger.WEBHOOK
+              trigger: codepipelineActions.GitHubTrigger.WEBHOOK,
+              branch: getCurrentBranchName()
             })
           ]
         },

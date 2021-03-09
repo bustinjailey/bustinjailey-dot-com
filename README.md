@@ -14,4 +14,4 @@ cd cdk
 npm install
 source ~/.code-secrets && cdk deploy
 ```
-~/.code-secrets provides GITHUB_TOKEN, AWS_ACCOUNT_ID, SITE_CERT_ARN environment variables that are required to deploy the CDK stacks.
+~/.code-secrets must exist and must provide GITHUB_TOKEN, AWS_ACCOUNT_ID, SITE_CERT_ARN environment variables in order to deploy the CDK stacks.
