@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "cz": "cz",
+    "prepare": "husky install",
+    "test": "echo TODO"
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^5.1.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
