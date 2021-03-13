@@ -2,6 +2,17 @@
   text-align: center;
 }
 
+.background-image {
+  background: linear-gradient(
+      rgba(121, 82, 0, 0.9), 
+      rgba(121, 82, 0, 0.9)
+    ),
+    url(./images/background.jpg);
+  background-color: #282c34;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -14,7 +25,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
